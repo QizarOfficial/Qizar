@@ -1,15 +1,25 @@
-// Portfolio Filtering and Contact Form Handling
+// Wait for DOM content to load
 document.addEventListener('DOMContentLoaded', () => {
-  // Portfolio Filter Functionality
+  // Mobile Menu Toggle
+  const menuToggle = document.getElementById('menuToggle');
+  const nav = document.querySelector('nav');
+  menuToggle.addEventListener('click', () => {
+    nav.classList.toggle('active');
+    // Change icon between hamburger and close
+    if (nav.classList.contains('active')) {
+      menuToggle.innerHTML = '<i class="fas fa-times"></i>';
+    } else {
+      menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+    }
+  });
+
+  // Portfolio Filtering
   const filterButtons = document.querySelectorAll('.filter-btn');
   const portfolioItems = document.querySelectorAll('.portfolio-item');
-
   filterButtons.forEach(btn => {
     btn.addEventListener('click', () => {
-      // Toggle active class for filter buttons
       filterButtons.forEach(button => button.classList.remove('active'));
       btn.classList.add('active');
-
       const filterValue = btn.getAttribute('data-filter');
       portfolioItems.forEach(item => {
         if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
@@ -22,7 +32,34 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Simple Contact Form Submission (Demo Only)
+  // Portfolio Modal for detailed view
+  const modal = document.getElementById('portfolioModal');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalDescription = document.getElementById('modalDescription');
+  const closeModal = document.querySelector('.modal .close');
+
+  document.querySelectorAll('.view-details-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const portfolioItem = e.target.closest('.portfolio-item');
+      const title = portfolioItem.getAttribute('data-title');
+      const detail = portfolioItem.getAttribute('data-detail');
+      modalTitle.textContent = title;
+      modalDescription.textContent = detail;
+      modal.style.display = 'block';
+    });
+  });
+
+  closeModal.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
+
+  // Simple Contact Form Submission (Demo)
   const contactForm = document.getElementById('contactForm');
   contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
