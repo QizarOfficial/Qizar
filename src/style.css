@@ -1,32 +1,35 @@
-/* Reset & Base Styles */
+/* Global Styles */
+html {
+  scroll-behavior: smooth;
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 body {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Alexandra', sans-serif;
   line-height: 1.6;
   background: #0d0d0d;
   color: #e0e0e0;
-  overflow-x: hidden;
 }
 
 /* Container */
 .container {
   width: 90%;
   max-width: 1200px;
-  margin: auto;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 /* Header & Navigation */
 header {
-  background: rgba(17,17,17,0.8);
+  background: #111;
   padding: 20px 0;
   position: sticky;
   top: 0;
   z-index: 1002;
-  backdrop-filter: blur(5px);
+  border-bottom: 2px solid #00e6e6;
 }
 .header-container {
   display: flex;
@@ -57,6 +60,8 @@ nav ul {
   list-style: none;
   display: flex;
   justify-content: center;
+  margin: 0;
+  padding: 0;
 }
 nav ul li {
   margin: 0 15px;
@@ -65,14 +70,17 @@ nav a {
   text-decoration: none;
   color: #e0e0e0;
   font-weight: bold;
-  transition: color 0.3s, text-shadow 0.3s;
+  padding: 10px 15px;
+  transition: color 0.3s, text-shadow 0.3s, background 0.3s;
+  border-radius: 5px;
 }
 nav a:hover {
   color: #00e6e6;
   text-shadow: 0 0 10px #00e6e6;
+  background: #222;
 }
 
-/* Mobile Navigation (Off-canvas) */
+/* Mobile Navigation (Sliding from the right) */
 @media (max-width: 768px) {
   #menuToggle {
     display: block;
@@ -80,12 +88,12 @@ nav a:hover {
   nav {
     position: fixed;
     top: 0;
-    left: 0;
+    right: 0;
     width: 250px;
     height: 100%;
     background: #111;
     padding-top: 60px;
-    transform: translateX(-100%);
+    transform: translateX(100%);
     transition: transform 0.3s ease;
     z-index: 1001;
     flex-direction: column;
@@ -95,17 +103,19 @@ nav a:hover {
   }
   nav ul {
     flex-direction: column;
+    margin: 20px;
   }
   nav ul li {
     margin: 20px 0;
   }
 }
 
-/* Hero Section with Enhanced Content & Vectors */
+/* Hero Section */
 .hero-section {
   background: url('https://picsum.photos/seed/futuristic/1600/900') no-repeat center center/cover;
   height: 100vh;
   position: relative;
+  margin-bottom: 20px;
 }
 .hero-overlay {
   background: rgba(0, 0, 0, 0.6);
@@ -116,7 +126,7 @@ nav a:hover {
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 0 20px;
+  padding: 20px;
   animation: fadeIn 2s ease-in;
   position: relative;
 }
@@ -131,36 +141,18 @@ nav a:hover {
   margin-bottom: 30px;
   max-width: 800px;
 }
-.hero-vectors {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
+.hero-animation {
+  font-size: 3em;
+  margin-bottom: 20px;
+  animation: floatIcons 3s ease-in-out infinite;
 }
-.vector {
-  position: absolute;
-  background: rgba(0,230,230,0.2);
-  border: 2px solid #00e6e6;
-  border-radius: 50%;
-  animation: float 6s ease-in-out infinite;
+.hero-animation i {
+  margin: 0 10px;
 }
-.vector-1 {
-  width: 100px;
-  height: 100px;
-  top: 20%;
-  left: 10%;
-}
-.vector-2 {
-  width: 150px;
-  height: 150px;
-  bottom: 20%;
-  right: 10%;
-}
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
+@keyframes floatIcons {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
 }
 @keyframes fadeIn {
   from { opacity: 0; }
@@ -175,7 +167,8 @@ nav a:hover {
 .about-section {
   background: #1a1a1a;
   text-align: center;
-  padding: 60px 0;
+  padding: 60px 20px;
+  margin-bottom: 20px;
 }
 .about-section img {
   width: 100%;
@@ -189,7 +182,8 @@ nav a:hover {
 .services-section {
   background: #111;
   text-align: center;
-  padding: 60px 0;
+  padding: 60px 20px;
+  margin-bottom: 20px;
 }
 .services-section h2 {
   margin-bottom: 40px;
@@ -204,6 +198,7 @@ nav a:hover {
   background: #1a1a1a;
   padding: 20px;
   border-radius: 15px;
+  margin: 10px;
   transition: transform 0.3s, box-shadow 0.3s;
 }
 .service-card:hover {
@@ -224,13 +219,21 @@ nav a:hover {
 .service-btn {
   padding: 10px 20px;
   border-radius: 15px;
+  background: #00e6e6;
+  color: #0d0d0d;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+.service-btn:hover {
+  background: #00b3b3;
 }
 
 /* Portfolio Section */
 .portfolio-section {
   background: #1a1a1a;
   text-align: center;
-  padding: 60px 0;
+  padding: 60px 20px;
+  margin-bottom: 20px;
 }
 .portfolio-section h2 {
   margin-bottom: 40px;
@@ -263,6 +266,7 @@ nav a:hover {
   overflow: hidden;
   border-radius: 15px;
   transition: transform 0.3s;
+  margin: 10px;
 }
 .portfolio-item img {
   width: 100%;
@@ -281,6 +285,18 @@ nav a:hover {
 .portfolio-info p {
   margin-bottom: 15px;
 }
+.view-details-btn {
+  padding: 8px 16px;
+  border-radius: 15px;
+  background: #00e6e6;
+  color: #0d0d0d;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.view-details-btn:hover {
+  background: #00b3b3;
+}
 
 /* Modal for Portfolio Details */
 .modal {
@@ -296,10 +312,10 @@ nav a:hover {
 }
 .modal-content {
   background: #1a1a1a;
-  margin: 10% auto;
+  margin: 5% auto;
   padding: 20px;
   border-radius: 15px;
-  width: 80%;
+  width: 90%;
   max-width: 600px;
   position: relative;
 }
@@ -308,6 +324,19 @@ nav a:hover {
 }
 .modal-content p {
   line-height: 1.6;
+  margin-bottom: 15px;
+}
+#modalExtra {
+  margin-top: 15px;
+}
+#modalExtra img {
+  width: 100%;
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
+#modalExtra ul {
+  list-style: disc;
+  padding-left: 20px;
 }
 .modal .close {
   position: absolute;
@@ -322,7 +351,8 @@ nav a:hover {
 .contact-section {
   background: #111;
   text-align: center;
-  padding: 60px 0;
+  padding: 60px 20px;
+  margin-bottom: 20px;
 }
 .contact-section form {
   max-width: 600px;
@@ -348,6 +378,13 @@ nav a:hover {
   text-align: center;
   padding: 12px;
   border-radius: 15px;
+  background: #00e6e6;
+  color: #0d0d0d;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+.contact-section .btn:hover {
+  background: #00b3b3;
 }
 
 /* Footer */
@@ -355,4 +392,5 @@ footer {
   background: #111;
   text-align: center;
   padding: 20px 0;
+  margin-top: 20px;
 }
