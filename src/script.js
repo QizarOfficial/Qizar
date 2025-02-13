@@ -1,4 +1,4 @@
-/* Portfolio Filtering and Contact Form Handling */
+// Portfolio Filtering and Contact Form Handling
 document.addEventListener('DOMContentLoaded', () => {
   // Portfolio Filter Functionality
   const filterButtons = document.querySelectorAll('.filter-btn');
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Simple Contact Form Submission (Demo only)
+  // Simple Contact Form Submission (Demo Only)
   const contactForm = document.getElementById('contactForm');
   contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
