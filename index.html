@@ -1,412 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Qizar - Modern Web Agency</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" type="image/x-icon" href="logo/favicon.svg">
-    <style>
-        :root {
-            --primary: #0071FF;
-            --primary-dark: #0059CC;
-            --secondary: #6DD3FF;
-            --accent: #FF6B6B;
-            --dark: #1A1A1A;
-            --light: #F8FAFF;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        body {
-            background: white;
-            color: var(--dark);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Navigation */
-        nav {
-            padding: 1.5rem 5%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            position: fixed;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-        }
-
-        .logo img {
-            width: 125px;
-            height: auto;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .menu-icon {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 12rem 5% 6rem;
-            text-align: center;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            color: white;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            max-width: 600px;
-            margin: 0 auto 3rem;
-            opacity: 0.9;
-        }
-
-        .cta-button {
-            padding: 1rem 2.5rem;
-            background: white;
-            color: var(--primary);
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Services Section */
-
-        .custom-shape-divider-bottom-1738556573 {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-    transform: rotate(180deg);
-}
-
-.custom-shape-divider-bottom-1738556573 svg {
-    position: relative;
-    display: block;
-    width: calc(100% + 1.3px);
-    height: 150px;
-}
-
-.custom-shape-divider-bottom-1738556573 .shape-fill {
-    fill: var(--light);
-}
-
-/** For mobile devices **/
-@media (max-width: 767px) {
-    .custom-shape-divider-bottom-1738556573 svg {
-        width: calc(300% + 1.3px);
-        height: 150px;
-    }
-}
-
-        .services {
-            padding: 6rem 5%;
-            background: var(--light);
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-            font-size: 2.5rem;
-            color: var(--dark);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card {
-            padding: 2.5rem;
-            background: white;
-            border-radius: 1rem;
-            box-shadow: 0 10px 30px rgba(0, 113, 255, 0.08);
-            transition: 0.3s;
-            text-align: center;
-        }
-
-        .service-card i {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* Portfolio Section */
-        .portfolio {
-            padding: 6rem 5%;
-        }
-
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .portfolio-item {
-            border-radius: 1rem;
-            overflow: hidden;
-            position: relative;
-            aspect-ratio: 4/3;
-        }
-
-        .portfolio-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: 0.3s;
-        }
-
-        .portfolio-item:hover img {
-            transform: scale(1.05);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--dark);
-            color: white;
-            padding: 4rem 5%;
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .social-links a {
-            color: white;
-            font-size: 1.5rem;
-            transition: 0.3s;
-        }
-
-        .social-links a:hover {
-            color: var(--primary);
-            transform: translateY(-3px);
-        }
-
-        .copyright {
-            margin-top: 2rem;
-            opacity: 0.7;
-            font-size: 0.9rem;
-        }
-
-        /* Animations */
-        [data-scroll] {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: 0.8s;
-        }
-
-        [data-scroll].visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: white;
-                padding: 1rem;
-                flex-direction: column;
-                text-align: center;
-                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .menu-icon {
-                display: block;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Qizar.com offers a rich, futuristic digital experience with innovative services and a creative work portfolio.">
+  <title>Qizar - Futuristic Web Solutions</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav>
-        <div class="logo"><img src="logo/logo.png" alt="" href="/"></div>
-        <div class="nav-links">
-            <a href="#home">Home</a>
-            <a href="#services">Services</a>
-            <a href="#portfolio">Portfolio</a>
+  <!-- Header & Navigation -->
+  <header>
+    <div class="container header-container">
+      <h1 class="logo">Qizar</h1>
+      <nav>
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero-section">
+    <div class="hero-overlay">
+      <h2>Welcome to Qizar</h2>
+      <p>Your gateway to futuristic digital solutions.</p>
+      <a href="#services" class="btn">Explore Our Services</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about-section">
+    <div class="container">
+      <h2>About Us</h2>
+      <p>At Qizar, we merge creativity with cutting-edge technology to deliver modern digital experiences. Our team of experts is passionate about innovation and design.</p>
+      <img src="https://source.unsplash.com/600x400/?team,technology" alt="Team working together">
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="services-section">
+    <div class="container">
+      <h2>Our Services</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <img src="https://source.unsplash.com/400x300/?web,development" alt="Web Development">
+          <h3>Web Development</h3>
+          <p>Building responsive, SEO-optimized websites using modern technologies.</p>
         </div>
-        <i class="menu-icon fas fa-bars"></i>
-    </nav>
-
-    <section class="hero" id="home">
-        <h1 data-scroll>Transform Your Digital Presence</h1>
-        <p data-scroll>We create stunning web experiences that drive results</p>
-        <button class="cta-button" data-scroll>
-            <i class="fas fa-rocket"></i>
-            Start Your Journey
-        </button>
-
-
-<div class="custom-shape-divider-bottom-1738556573">
-<svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-<path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
-<path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
-<path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
-</svg>
-</div>
-    </section>
-
-    <section class="services" id="services">
-        <h2 class="section-title" data-scroll>Our Expertise</h2>
-        <div class="services-grid">
-            <div class="service-card" data-scroll>
-                <i class="fas fa-code"></i>
-                <h3>Web Development</h3>
-                <p>Modern stack development with React, Vue, and Node.js</p>
-            </div>
-            <div class="service-card" data-scroll>
-                <i class="fas fa-paint-brush"></i>
-                <h3>UI/UX Design</h3>
-                <p>User-centered interfaces that convert visitors to customers</p>
-            </div>
-            <div class="service-card" data-scroll>
-                <i class="fas fa-shopping-cart"></i>
-                <h3>E-Commerce</h3>
-                <p>Scalable online stores with Shopify & WooCommerce</p>
-            </div>
+        <div class="service-card">
+          <img src="https://source.unsplash.com/400x300/?mobile,development" alt="Mobile Development">
+          <h3>Mobile Development</h3>
+          <p>Creating engaging mobile experiences for Android and iOS platforms.</p>
         </div>
-    </section>
-
-    <section class="portfolio" id="portfolio">
-        <h2 class="section-title" data-scroll>Recent Projects</h2>
-        <div class="portfolio-grid">
-            <div class="portfolio-item" data-scroll>
-                <img src="https://picsum.photos/400/300?random=1" alt="Project 1">
-            </div>
-            <div class="portfolio-item" data-scroll>
-                <img src="https://picsum.photos/400/300?random=2" alt="Project 2">
-            </div>
-            <div class="portfolio-item" data-scroll>
-                <img src="https://picsum.photos/400/300?random=3" alt="Project 3">
-            </div>
+        <div class="service-card">
+          <img src="https://source.unsplash.com/400x300/?design" alt="UI/UX Design">
+          <h3>UI/UX Design</h3>
+          <p>Designing intuitive and captivating user interfaces and experiences.</p>
         </div>
-    </section>
-
-    <footer id="contact">
-        <div class="footer-content">
-            <h3 data-scroll>Let's Create Something Amazing</h3>
-            <div class="social-links" data-scroll>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-dribbble"></i></a>
-            </div>
-            <p class="copyright" data-scroll>
-                © 2025 Qizar. All rights reserved.
-            </p>
+        <div class="service-card">
+          <img src="https://source.unsplash.com/400x300/?cloud" alt="Cloud Solutions">
+          <h3>Cloud Solutions</h3>
+          <p>Offering scalable cloud services and DevOps solutions for your business.</p>
         </div>
-    </footer>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        // Mobile Menu Toggle
-        document.querySelector('.menu-icon').addEventListener('click', () => {
-            document.querySelector('.nav-links').classList.toggle('active');
-        });
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="portfolio-section">
+    <div class="container">
+      <h2>Our Work Portfolio</h2>
+      <div class="portfolio-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="web">Web Dev</button>
+        <button class="filter-btn" data-filter="mobile">Mobile Dev</button>
+        <button class="filter-btn" data-filter="design">Design</button>
+        <button class="filter-btn" data-filter="cloud">Cloud</button>
+      </div>
+      <div class="portfolio-grid">
+        <!-- Portfolio Item 1 -->
+        <div class="portfolio-item" data-category="web">
+          <img src="https://source.unsplash.com/400x300/?website" alt="Modern Web Project">
+          <div class="portfolio-info">
+            <h3>Modern Web App</h3>
+            <p>Innovative web solution built with modern frameworks.</p>
+          </div>
+        </div>
+        <!-- Portfolio Item 2 -->
+        <div class="portfolio-item" data-category="mobile">
+          <img src="https://source.unsplash.com/400x300/?mobile,app" alt="Mobile App Project">
+          <div class="portfolio-info">
+            <h3>Mobile App</h3>
+            <p>Seamless mobile experience on both Android and iOS.</p>
+          </div>
+        </div>
+        <!-- Portfolio Item 3 -->
+        <div class="portfolio-item" data-category="design">
+          <img src="https://source.unsplash.com/400x300/?ui,ux" alt="Design Project">
+          <div class="portfolio-info">
+            <h3>Creative Design</h3>
+            <p>Stunning designs that captivate and inspire.</p>
+          </div>
+        </div>
+        <!-- Portfolio Item 4 -->
+        <div class="portfolio-item" data-category="cloud">
+          <img src="https://source.unsplash.com/400x300/?cloud,computing" alt="Cloud Integration Project">
+          <div class="portfolio-info">
+            <h3>Cloud Integration</h3>
+            <p>Robust cloud solutions tailored for your business.</p>
+          </div>
+        </div>
+        <!-- Additional items can be added similarly -->
+      </div>
+    </div>
+  </section>
 
-        // Scroll Animation
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <form id="contactForm">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" placeholder="Your Name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Your Email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" placeholder="Your Message" required></textarea>
+        </div>
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+    </div>
+  </section>
 
-        document.querySelectorAll('[data-scroll]').forEach(element => {
-            observer.observe(element);
-        });
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Qizar.com. All Rights Reserved.</p>
+    </div>
+  </footer>
 
-        // Smooth Scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
+  <script src="script.js"></script>
 </body>
 </html>
