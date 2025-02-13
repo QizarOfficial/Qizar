@@ -3,17 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Qizar.com offers a rich, futuristic digital experience with innovative services and a creative work portfolio.">
+  <meta name="description" content="Qizar.com offers a futuristic digital experience with innovative services and a creative work portfolio.">
   <title>Qizar - Futuristic Web Solutions</title>
-  <!-- Futuristic font from Google Fonts -->
+  <!-- Google Font and Font Awesome for icons -->
   <link href="https://fonts.googleapis.com/css?family=Orbitron:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
   <link rel="stylesheet" href="src/style.css">
 </head>
 <body>
-  <!-- Header & Navigation -->
+  <!-- Header with mobile menu toggle -->
   <header>
     <div class="container header-container">
       <h1 class="logo">Qizar</h1>
+      <div id="menuToggle"><i class="fas fa-bars"></i></div>
       <nav>
         <ul>
           <li><a href="#hero">Home</a></li>
@@ -26,11 +28,16 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
+  <!-- Hero Section with extra content and animations -->
   <section id="hero" class="hero-section">
     <div class="hero-overlay">
-      <h2>Welcome to Qizar</h2>
-      <p>Your gateway to futuristic digital solutions.</p>
+      <h2 class="hero-title">Welcome to Qizar</h2>
+      <p class="hero-subtitle">Your gateway to futuristic digital solutions, cutting-edge design, and immersive experiences.</p>
+      <div class="hero-vectors">
+        <!-- Example vector shapes animated with CSS -->
+        <div class="vector vector-1"></div>
+        <div class="vector vector-2"></div>
+      </div>
       <a href="#services" class="btn">Explore Our Services</a>
     </div>
   </section>
@@ -44,36 +51,40 @@
     </div>
   </section>
 
-  <!-- Services Section -->
+  <!-- Services Section (using icons instead of images) -->
   <section id="services" class="services-section">
     <div class="container">
       <h2>Our Services</h2>
       <div class="services-grid">
         <div class="service-card">
-          <img src="https://picsum.photos/seed/web/400/300" alt="Web Development">
+          <i class="fas fa-code service-icon"></i>
           <h3>Web Development</h3>
           <p>Building responsive, SEO-optimized websites with modern technologies.</p>
+          <a href="#contact" class="btn service-btn">Ask for Service</a>
         </div>
         <div class="service-card">
-          <img src="https://picsum.photos/seed/mobile/400/300" alt="Mobile Development">
+          <i class="fas fa-mobile-alt service-icon"></i>
           <h3>Mobile Development</h3>
           <p>Creating engaging mobile experiences for Android and iOS.</p>
+          <a href="#contact" class="btn service-btn">Ask for Service</a>
         </div>
         <div class="service-card">
-          <img src="https://picsum.photos/seed/design/400/300" alt="UI/UX Design">
+          <i class="fas fa-pencil-ruler service-icon"></i>
           <h3>UI/UX Design</h3>
           <p>Designing intuitive and captivating user interfaces and experiences.</p>
+          <a href="#contact" class="btn service-btn">Ask for Service</a>
         </div>
         <div class="service-card">
-          <img src="https://picsum.photos/seed/cloud/400/300" alt="Cloud Solutions">
+          <i class="fas fa-cloud service-icon"></i>
           <h3>Cloud Solutions</h3>
           <p>Providing scalable cloud services and DevOps solutions for your business.</p>
+          <a href="#contact" class="btn service-btn">Ask for Service</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Portfolio Section -->
+  <!-- Portfolio Section as cards -->
   <section id="portfolio" class="portfolio-section">
     <div class="container">
       <h2>Our Work Portfolio</h2>
@@ -86,40 +97,53 @@
       </div>
       <div class="portfolio-grid">
         <!-- Portfolio Item 1 -->
-        <div class="portfolio-item" data-category="web">
+        <div class="portfolio-item" data-category="web" data-title="Modern Web App" data-detail="Detailed description for the Modern Web App project. We used cutting-edge frameworks and best practices to build this responsive website.">
           <img src="https://picsum.photos/seed/portfolio1/400/300" alt="Modern Web Project">
           <div class="portfolio-info">
             <h3>Modern Web App</h3>
             <p>Innovative web solution built with modern frameworks.</p>
+            <button class="btn view-details-btn">View Details</button>
           </div>
         </div>
         <!-- Portfolio Item 2 -->
-        <div class="portfolio-item" data-category="mobile">
+        <div class="portfolio-item" data-category="mobile" data-title="Mobile App" data-detail="This mobile app provides a seamless experience across Android and iOS, featuring an intuitive interface and smooth animations.">
           <img src="https://picsum.photos/seed/portfolio2/400/300" alt="Mobile App Project">
           <div class="portfolio-info">
             <h3>Mobile App</h3>
             <p>Seamless mobile experience on Android and iOS.</p>
+            <button class="btn view-details-btn">View Details</button>
           </div>
         </div>
         <!-- Portfolio Item 3 -->
-        <div class="portfolio-item" data-category="design">
+        <div class="portfolio-item" data-category="design" data-title="Creative Design" data-detail="A project focused on creative design solutions that captivate and inspire through bold visuals and unique layouts.">
           <img src="https://picsum.photos/seed/portfolio3/400/300" alt="Design Project">
           <div class="portfolio-info">
             <h3>Creative Design</h3>
             <p>Stunning designs that captivate and inspire.</p>
+            <button class="btn view-details-btn">View Details</button>
           </div>
         </div>
         <!-- Portfolio Item 4 -->
-        <div class="portfolio-item" data-category="cloud">
+        <div class="portfolio-item" data-category="cloud" data-title="Cloud Integration" data-detail="Robust cloud integration tailored for your business needs, ensuring scalability and efficiency with our expert solutions.">
           <img src="https://picsum.photos/seed/portfolio4/400/300" alt="Cloud Integration Project">
           <div class="portfolio-info">
             <h3>Cloud Integration</h3>
             <p>Robust cloud solutions tailored for your business.</p>
+            <button class="btn view-details-btn">View Details</button>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- Portfolio Modal for detailed project view -->
+  <div id="portfolioModal" class="modal">
+    <div class="modal-content">
+      <span class="close"><i class="fas fa-times"></i></span>
+      <h3 id="modalTitle"></h3>
+      <p id="modalDescription"></p>
+    </div>
+  </div>
 
   <!-- Contact Section -->
   <section id="contact" class="contact-section">
@@ -146,7 +170,7 @@
   <!-- Footer -->
   <footer>
     <div class="container">
-      <p>&copy; 2025 Qizar. All Rights Reserved.</p>
+      <p>&copy; 2025 Qizar.com. All Rights Reserved.</p>
     </div>
   </footer>
 
