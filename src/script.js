@@ -1,16 +1,12 @@
-// Wait for DOM content to load
 document.addEventListener('DOMContentLoaded', () => {
-  // Mobile Menu Toggle
+  // Mobile Menu Toggle (Sliding from the right)
   const menuToggle = document.getElementById('menuToggle');
   const nav = document.querySelector('nav');
   menuToggle.addEventListener('click', () => {
     nav.classList.toggle('active');
-    // Change icon between hamburger and close
-    if (nav.classList.contains('active')) {
-      menuToggle.innerHTML = '<i class="fas fa-times"></i>';
-    } else {
-      menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-    }
+    menuToggle.innerHTML = nav.classList.contains('active')
+      ? '<i class="fas fa-times"></i>'
+      : '<i class="fas fa-bars"></i>';
   });
 
   // Portfolio Filtering
@@ -32,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Portfolio Modal for detailed view
+  // Portfolio Modal for detailed view with extra content
   const modal = document.getElementById('portfolioModal');
   const modalTitle = document.getElementById('modalTitle');
   const modalDescription = document.getElementById('modalDescription');
