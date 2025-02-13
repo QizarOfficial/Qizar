@@ -5,10 +5,11 @@
   box-sizing: border-box;
 }
 body {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Orbitron', sans-serif;
   line-height: 1.6;
   background: #0d0d0d;
   color: #e0e0e0;
+  overflow-x: hidden;
 }
 
 /* Container */
@@ -18,13 +19,14 @@ body {
   margin: auto;
 }
 
-/* Header & Navigation */
+/* Header & Navigation with Glassmorphism Effect */
 header {
-  background: #111;
+  background: rgba(17, 17, 17, 0.8);
   padding: 20px 0;
   position: sticky;
   top: 0;
   z-index: 1000;
+  backdrop-filter: blur(5px);
 }
 .header-container {
   display: flex;
@@ -32,9 +34,10 @@ header {
   justify-content: space-between;
 }
 .logo {
-  font-size: 1.8em;
+  font-size: 2em;
   color: #00e6e6;
   margin-left: 20px;
+  text-shadow: 0 0 10px #00e6e6;
 }
 nav ul {
   list-style: none;
@@ -48,20 +51,21 @@ nav a {
   text-decoration: none;
   color: #e0e0e0;
   font-weight: bold;
-  transition: color 0.3s;
+  transition: color 0.3s, text-shadow 0.3s;
 }
 nav a:hover {
   color: #00e6e6;
+  text-shadow: 0 0 10px #00e6e6;
 }
 
-/* Hero Section */
+/* Hero Section with Animated Gradient Overlay */
 .hero-section {
-  background: url('https://source.unsplash.com/1600x900/?futuristic,technology') no-repeat center center/cover;
+  background: url('https://picsum.photos/seed/futuristic/1600/900') no-repeat center center/cover;
   height: 100vh;
   position: relative;
 }
 .hero-overlay {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6);
   height: 100%;
   width: 100%;
   display: flex;
@@ -73,25 +77,27 @@ nav a:hover {
   animation: fadeIn 2s ease-in;
 }
 .hero-overlay h2 {
-  font-size: 3em;
+  font-size: 3.5em;
   margin-bottom: 20px;
   text-shadow: 0 0 20px #00e6e6;
+  animation: neonGlow 1.5s ease-in-out infinite alternate;
 }
 .hero-overlay p {
-  font-size: 1.2em;
+  font-size: 1.3em;
   margin-bottom: 30px;
 }
 .btn {
   background: #00e6e6;
   color: #0d0d0d;
-  padding: 10px 20px;
+  padding: 12px 25px;
   text-decoration: none;
   border-radius: 5px;
   font-weight: bold;
-  transition: background 0.3s;
+  transition: background 0.3s, transform 0.3s;
 }
 .btn:hover {
   background: #00b3b3;
+  transform: scale(1.05);
 }
 
 /* Sections */
@@ -109,6 +115,7 @@ section {
   max-width: 600px;
   margin-top: 20px;
   border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,230,230,0.5);
 }
 
 /* Services Section */
@@ -118,6 +125,7 @@ section {
 }
 .services-section h2 {
   margin-bottom: 40px;
+  text-shadow: 0 0 10px #00e6e6;
 }
 .services-grid {
   display: grid;
@@ -128,10 +136,11 @@ section {
   background: #1a1a1a;
   padding: 20px;
   border-radius: 10px;
-  transition: transform 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 .service-card:hover {
   transform: translateY(-10px);
+  box-shadow: 0 0 20px #00e6e6;
 }
 .service-card img {
   width: 100%;
@@ -146,6 +155,7 @@ section {
 }
 .portfolio-section h2 {
   margin-bottom: 40px;
+  text-shadow: 0 0 10px #00e6e6;
 }
 .portfolio-filters {
   margin-bottom: 20px;
@@ -235,6 +245,10 @@ footer {
   from { opacity: 0; }
   to { opacity: 1; }
 }
+@keyframes neonGlow {
+  from { text-shadow: 0 0 20px #00e6e6; }
+  to { text-shadow: 0 0 40px #00e6e6; }
+}
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
@@ -244,5 +258,8 @@ footer {
   }
   nav ul {
     flex-direction: column;
+  }
+  .hero-overlay h2 {
+    font-size: 2.8em;
   }
 }
