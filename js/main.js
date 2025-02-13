@@ -20,10 +20,10 @@
     $(window).scroll(function () {
         if ($(this).scrollTop() > 45) {
             $('.navbar').addClass('sticky-top shadow-sm');
-            $('.navbar img').attr('src', 'img/logo_dark.png');
+            $('.navbar img').attr('src', 'img/logo_light.png');
         } else {
             $('.navbar').removeClass('sticky-top shadow-sm');
-            $('.navbar img').attr('src', 'img/logo_light.png');
+            $('.navbar img').attr('src', 'img/logo_dark.png');
         }
     });
     
