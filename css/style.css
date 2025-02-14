@@ -136,7 +136,7 @@ h6,
 @media (max-width: 991.98px) {
     .sticky-top.navbar-light {
         position: relative;
-        background: transparent;
+        background: var(--dark);
     }
 
     .navbar-light .navbar-collapse {
@@ -148,7 +148,7 @@ h6,
     .sticky-top.navbar-light .navbar-nav .nav-link {
         padding: 10px 0;
         margin-left: 0;
-        color: var(--dark) !important;
+        color: var(--light) !important;
     }
 
     .navbar-light .navbar-brand h1 {
