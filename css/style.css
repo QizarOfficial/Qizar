@@ -105,7 +105,7 @@ h6,
     font-family: 'Alexandria', sans-serif;
     font-size: 18px;
     font-weight: 500;
-    color: var(--light) !important;
+    color: var(--bs-light) !important;
     outline: none;
     transition: .5s;
 }
@@ -148,7 +148,7 @@ h6,
     .sticky-top.navbar-light .navbar-nav .nav-link {
         padding: 10px 0;
         margin-left: 0;
-        color: var(--light) !important;
+        color: var(--bs-light) !important;
     }
 
     .navbar-light .navbar-brand h1 {
