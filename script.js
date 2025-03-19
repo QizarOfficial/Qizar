@@ -7,6 +7,7 @@ window.addEventListener('load', () => {
     }, 1500);
 });
 
+
 // Dark mode toggle
 document.addEventListener('DOMContentLoaded', () => {
     const toggleButton = document.getElementById('dark-mode-toggle');
@@ -35,6 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateIcon();
     });
 });
+
 
 
 // Enhanced Typing animation
@@ -82,15 +84,10 @@ function initTypeEffect() {
 // Initialize typing effect after DOM load
 document.addEventListener('DOMContentLoaded', initTypeEffect);
 
-// Mobile menu toggle
-const menuButton = document.querySelector('.menu-btn');
-const navigationLinks = document.querySelector('.nav-links');
-const pageSections = document.querySelectorAll('section');
-const navigationItems = document.querySelectorAll('.nav-link');
-
-menuButton.addEventListener('click', () => {
-    menuButton.classList.toggle('active');
-    navigationLinks.classList.toggle('active');
+navLinks.addEventListener('click', (e) => {
+    if (e.target.classList.contains('nav-link')) {
+        toggleMenu(false);
+    }
 });
 
 
@@ -324,3 +321,40 @@ function handleImageLoading() {
 }
 
 document.addEventListener('DOMContentLoaded', handleImageLoading);
+
+// Enhanced mobile menu implementation
+const navbarToggler = document.querySelector('.navbar-toggler');
+const navLinks = document.querySelector('.nav-links');
+const backdrop = document.createElement('div');
+backdrop.classList.add('mobile-menu-backdrop');
+document.body.appendChild(backdrop);
+
+function toggleMenu(show) {
+    navbarToggler.classList.toggle('active', show);
+    navLinks.classList.toggle('show', show);
+    backdrop.style.display = show ? 'block' : 'none';
+    setTimeout(() => backdrop.classList.toggle('active', show), 10);
+    document.body.style.overflow = show ? 'hidden' : '';
+}
+
+navbarToggler.addEventListener('click', () => {
+    const willShow = !navLinks.classList.contains('active');
+    toggleMenu(willShow);
+});
+
+navLinks.addEventListener('click', (e) => {
+    if (e.target.classList.contains('nav-link')) {
+        toggleMenu(false);
+    }
+});
+
+backdrop.addEventListener('click', () => {
+    toggleMenu(false);
+});
+
+// Close menu on escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+        toggleMenu(false);
+    }
+});
