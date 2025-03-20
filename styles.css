@@ -1689,12 +1689,10 @@ section h2::after {
     padding: 5rem 0 3rem;
 }
 
-.footer-brand h3 {
-    font-size: 2rem;
-    background: var(--gradient-1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+.footer-brand img {
+    height: 100%;
+    width: 250px;
+    object-fit: contain;
 }
 
 .footer-links {

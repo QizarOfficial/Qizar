@@ -1,0 +1,15 @@
+{
+  "name": "Qizar | Web Development Agency",
+  "short_name": "Qizar",
+  "description": "We craft digital experiences that inspire",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2196f3",
+  "icons": [
+    {
+      "src": "assets/images/logos/favicon.svg",
+      "type": "image/svg"
+    }
+  ]
+}
